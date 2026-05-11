@@ -41,6 +41,32 @@
       margin-bottom: 8px;
     }
 
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: #fff;
+      border-radius: 14px;
+      padding: 5px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      gap: 4px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      background: transparent;
+      color: #6b7280;
+    }
+    .tab-btn.active {
+      background: #1a1a2e;
+      color: #fff;
+    }
+
     .card {
       background: #fff;
       border-radius: 14px;
@@ -120,10 +146,7 @@
     }
     .hint strong { color: #4b5563; }
 
-    .row {
-      display: flex;
-      gap: 12px;
-    }
+    .row { display: flex; gap: 12px; }
     .col { flex: 1; }
 
     select, input[type="number"] {
@@ -144,7 +167,13 @@
       border-color: #6366f1;
       box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
     }
-    select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; }
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 34px;
+    }
 
     /* Expense cards */
     .expense-item {
@@ -232,11 +261,7 @@
     }
     .btn-remove:hover { border-color: #fca5a5; color: #ef4444; background: #fef2f2; }
 
-    .expense-bottom {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+    .expense-bottom { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .toggle-group {
       display: flex;
@@ -257,25 +282,10 @@
       transition: all 0.15s;
       white-space: nowrap;
     }
-
-    .toggle-btn.active-eu {
-      background: #dbeafe;
-      color: #1d4ed8;
-    }
-    .toggle-btn.active-ela {
-      background: #fce7f3;
-      color: #be185d;
-    }
-    .toggle-btn.active-split {
-      background: #f3f4f6;
-      color: #374151;
-      background: #e0e7ff;
-      color: #4338ca;
-    }
-    .toggle-btn.active-full {
-      background: #f3f4f6;
-      color: #374151;
-    }
+    .toggle-btn.active-eu   { background: #dbeafe; color: #1d4ed8; }
+    .toggle-btn.active-ela  { background: #fce7f3; color: #be185d; }
+    .toggle-btn.active-split { background: #e0e7ff; color: #4338ca; }
+    .toggle-btn.active-full  { background: #f3f4f6; color: #374151; }
 
     .btn-add {
       width: 100%;
@@ -305,7 +315,7 @@
     .summary-label { font-weight: 500; }
     .summary-value { font-weight: 600; color: #374151; font-variant-numeric: tabular-nums; }
     .summary-value.green { color: #059669; }
-    .summary-value.red { color: #dc2626; }
+    .summary-value.red   { color: #dc2626; }
 
     .transfer-box {
       background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
@@ -314,32 +324,12 @@
       text-align: center;
       color: white;
     }
-    .transfer-box.reverse {
-      background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
-    }
-    .transfer-box.zero {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    }
-    .transfer-label {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.8;
-      margin-bottom: 6px;
-    }
-    .transfer-amount {
-      font-size: 28px;
-      font-weight: 800;
-      font-variant-numeric: tabular-nums;
-    }
-    .transfer-who {
-      font-size: 13px;
-      opacity: 0.85;
-      margin-top: 4px;
-    }
+    .transfer-box.reverse { background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%); }
+    .transfer-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.8; margin-bottom: 6px; }
+    .transfer-amount { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .transfer-who { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 
-    /* Message preview */
+    /* Message */
     .message-preview {
       background: #f0f7f0;
       border: 1.5px solid #bbf7d0;
@@ -373,6 +363,162 @@
     .btn-copy:hover { background: #2d2d4e; }
     .btn-copy.copied { background: #059669; }
 
+    /* History tab */
+    .import-textarea {
+      width: 100%;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #374151;
+      resize: vertical;
+      outline: none;
+      min-height: 130px;
+      transition: border-color 0.15s;
+    }
+    .import-textarea:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+    .import-textarea::placeholder { color: #d1d5db; }
+
+    .btn-import {
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 10px;
+      background: #6366f1;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.15s;
+    }
+    .btn-import:hover { background: #4f46e5; }
+    .btn-import:disabled { background: #c7d2fe; cursor: not-allowed; }
+
+    .import-error {
+      font-size: 12px;
+      color: #dc2626;
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: #fef2f2;
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+    }
+
+    /* History list */
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      background: #fafafa;
+    }
+    .history-month {
+      font-weight: 700;
+      font-size: 14px;
+      color: #111827;
+      flex: 1;
+    }
+    .history-year {
+      font-size: 12px;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+    .history-amount {
+      font-size: 14px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .history-amount.out { color: #6366f1; }
+    .history-amount.in  { color: #0ea5e9; }
+    .history-dir {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .history-dir.out { color: #6366f1; }
+    .history-dir.in  { color: #0ea5e9; }
+
+    .btn-del {
+      background: none;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 6px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #9ca3af;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.15s;
+    }
+    .btn-del:hover { border-color: #fca5a5; color: #ef4444; background: #fef2f2; }
+
+    /* Consolidated */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .stat-box {
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .stat-box.purple { background: #f5f3ff; }
+    .stat-box.blue   { background: #eff6ff; }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 18px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-value.purple { color: #6366f1; }
+    .stat-value.blue   { color: #0ea5e9; }
+    .stat-count {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 3px;
+    }
+
+    .net-box {
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .net-box.eu  { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+    .net-box.ela { background: linear-gradient(135deg, #e0f2fe, #bfdbfe); }
+    .net-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7280; margin-bottom: 4px; }
+    .net-value { font-size: 22px; font-weight: 800; }
+    .net-value.eu  { color: #6366f1; }
+    .net-value.ela { color: #0ea5e9; }
+    .net-sub { font-size: 12px; color: #6b7280; margin-top: 4px; }
+
+    .empty-state {
+      text-align: center;
+      padding: 32px 16px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+    .empty-state-icon { font-size: 32px; margin-bottom: 8px; }
+
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
     input[type="number"] { -moz-appearance: textfield; }
@@ -380,7 +526,6 @@
     @media (max-width: 400px) {
       .expense-top { flex-wrap: wrap; }
       .amount-wrap { width: 100%; }
-      .btn-remove { align-self: flex-end; }
     }
   </style>
 </head>
@@ -388,21 +533,21 @@
   <div id="root"></div>
 
   <script type="text/babel">
-    const { useState } = React;
+    const { useState, useCallback } = React;
 
     const MONTHS = [
       'Janeiro','Fevereiro','Março','Abril','Maio','Junho',
       'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'
     ];
+    const MONTH_MAP = {
+      'JANEIRO':0,'FEVEREIRO':1,'MARÇO':2,'ABRIL':3,'MAIO':4,'JUNHO':5,
+      'JULHO':6,'AGOSTO':7,'SETEMBRO':8,'OUTUBRO':9,'NOVEMBRO':10,'DEZEMBRO':11
+    };
 
     function parseBRL(v) {
       if (!v) return 0;
-      // Accept both "1.234,56" and "1234.56" formats
       let s = v.toString().trim();
-      // If has comma: treat as BR format
-      if (s.includes(',')) {
-        s = s.replace(/\./g, '').replace(',', '.');
-      }
+      if (s.includes(',')) s = s.replace(/\./g, '').replace(',', '.');
       return parseFloat(s) || 0;
     }
 
@@ -410,27 +555,66 @@
       return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
+    function parseHistoryMessage(text) {
+      const headerMatch = text.match(/\*?\[?\s*([A-ZÇÃÕÁÉÍÓÚ]+)\s*\/\s*(\d{4})\s*-/i);
+      if (!headerMatch) return null;
+
+      const monthStr = headerMatch[1].toUpperCase().trim();
+      const year = parseInt(headerMatch[2]);
+      const month = MONTH_MAP[monthStr];
+      if (month === undefined || isNaN(year)) return null;
+
+      let amount = 0;
+      let direction = 'eu'; // 'eu' = I transfer to her, 'ela' = she transfers to me
+
+      const transferMatch = text.match(/[Tt]e\s+transfiro\s+R\$\s*([\d.,]+)/);
+      const receiveMatch  = text.match(/[Mm]e\s+transfere\s+R\$\s*([\d.,]+)/);
+
+      if (transferMatch) {
+        amount = parseBRL(transferMatch[1]);
+        direction = 'eu';
+      } else if (receiveMatch) {
+        amount = parseBRL(receiveMatch[1]);
+        direction = 'ela';
+      } else {
+        return null;
+      }
+
+      return { month, year, amount, direction, id: Date.now() + Math.random() };
+    }
+
+    function loadHistory() {
+      try {
+        const raw = localStorage.getItem('acerto-historico');
+        return raw ? JSON.parse(raw) : [];
+      } catch { return []; }
+    }
+
+    function saveHistory(items) {
+      try { localStorage.setItem('acerto-historico', JSON.stringify(items)); } catch {}
+    }
+
     let _id = 1;
     const newExp = () => ({ id: _id++, description: '', amount: '', paidBy: 'ela', split: false });
 
-    function App() {
+    // ── Calculator Tab ────────────────────────────────────────────────────────
+    function CalculatorTab() {
       const now = new Date();
-      const [month, setMonth] = useState(now.getMonth());
-      const [year, setYear] = useState(now.getFullYear());
-      const [rent, setRent] = useState('');
-      const [card, setCard] = useState('');
+      const prevMonth = now.getMonth() === 0 ? 11 : now.getMonth() - 1;
+      const prevYear  = now.getMonth() === 0 ? now.getFullYear() - 1 : now.getFullYear();
+      const [month, setMonth] = useState(prevMonth);
+      const [year, setYear]   = useState(prevYear);
+      const [rent, setRent]   = useState('');
+      const [card, setCard]   = useState('');
       const [expenses, setExpenses] = useState([]);
-      const [copied, setCopied] = useState(false);
+      const [copied, setCopied]     = useState(false);
 
       const rentVal = parseBRL(rent);
       const cardVal = parseBRL(card);
 
-      // balance > 0 → he transfers to her
-      // balance < 0 → she transfers to him
       let balance = 0;
-      balance += rentVal / 2;  // received rent → owes her half
-      balance -= cardVal / 2;  // paid card → she owes him half
-
+      balance += rentVal / 2;
+      balance -= cardVal / 2;
       expenses.forEach(e => {
         const v = parseBRL(e.amount);
         if (!v) return;
@@ -442,45 +626,32 @@
         setExpenses(prev => prev.map(e => e.id === id ? { ...e, [field]: val } : e));
 
       const generateMessage = () => {
-        const monthName = MONTHS[month].toUpperCase();
         const lines = [];
-        lines.push(`*[ ${monthName}/${year} - Acerto de contas ]*`);
+        lines.push(`*[ ${MONTHS[month].toUpperCase()}/${year} - Acerto de contas ]*`);
         lines.push('');
-
-        if (rentVal > 0)
-          lines.push(`Aluguel: R$ ${fmt(rentVal)} / 2 = R$ ${fmt(rentVal / 2)}`);
-        if (cardVal > 0)
-          lines.push(`Cartão: R$ ${fmt(cardVal)} / 2 = R$ ${fmt(cardVal / 2)}`);
-
+        if (rentVal > 0) lines.push(`Aluguel: R$ ${fmt(rentVal)} / 2 = R$ ${fmt(rentVal / 2)}`);
+        if (cardVal > 0) lines.push(`Cartão: R$ ${fmt(cardVal)} / 2 = R$ ${fmt(cardVal / 2)}`);
         expenses.forEach(e => {
           const v = parseBRL(e.amount);
           if (!v || !e.description) return;
           const eff = e.split ? v / 2 : v;
           const sign = e.paidBy === 'ela' ? '+' : '-';
-          if (e.split)
-            lines.push(`${sign} ${e.description}: R$ ${fmt(v)} / 2 = R$ ${fmt(eff)}`);
-          else
-            lines.push(`${sign} ${e.description}: R$ ${fmt(v)}`);
+          lines.push(e.split
+            ? `${sign} ${e.description}: R$ ${fmt(v)} / 2 = R$ ${fmt(eff)}`
+            : `${sign} ${e.description}: R$ ${fmt(v)}`
+          );
         });
-
         lines.push('');
-
-        if (balance > 0.005)
-          lines.push(`Te transfiro R$ ${fmt(balance)}`);
-        else if (balance < -0.005)
-          lines.push(`Me transfere R$ ${fmt(Math.abs(balance))}`);
-        else
-          lines.push(`Estamos quites!`);
-
+        if (balance > 0.005)       lines.push(`Te transfiro R$ ${fmt(balance)}`);
+        else if (balance < -0.005) lines.push(`Me transfere R$ ${fmt(Math.abs(balance))}`);
         return lines.join('\n');
       };
 
       const message = generateMessage();
 
       const copyMsg = async () => {
-        try {
-          await navigator.clipboard.writeText(message);
-        } catch {
+        try { await navigator.clipboard.writeText(message); }
+        catch {
           const el = document.createElement('textarea');
           el.value = message;
           document.body.appendChild(el);
@@ -492,15 +663,11 @@
         setTimeout(() => setCopied(false), 2000);
       };
 
-      const transferDirection = balance > 0.005 ? 'eu' : balance < -0.005 ? 'ela' : 'zero';
+      const isPositive = balance > 0.005;
+      const isNegative = balance < -0.005;
 
       return (
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 8 }}>
-            <h1>Acerto de Contas</h1>
-            <p className="subtitle">Calcule automaticamente o valor a transferir</p>
-          </div>
-
+        <>
           {/* Período */}
           <div className="card">
             <div className="card-title">Período</div>
@@ -513,11 +680,7 @@
               </div>
               <div className="col">
                 <label>Ano</label>
-                <input
-                  type="number"
-                  value={year}
-                  onChange={e => setYear(+e.target.value)}
-                />
+                <input type="number" value={year} onChange={e => setYear(+e.target.value)} />
               </div>
             </div>
           </div>
@@ -525,124 +688,60 @@
           {/* Aluguel */}
           <div className="card">
             <div className="card-title">Aluguel</div>
-            <label>
-              Valor recebido
-              <span className="badge badge-green">eu recebo</span>
-            </label>
+            <label>Valor recebido <span className="badge badge-green">eu recebo</span></label>
             <div className="input-wrap">
               <span className="input-prefix">R$</span>
-              <input
-                className="money-input"
-                type="text"
-                inputMode="decimal"
-                placeholder="0,00"
-                value={rent}
-                onChange={e => setRent(e.target.value)}
-              />
+              <input className="money-input" type="text" inputMode="decimal" placeholder="0,00"
+                value={rent} onChange={e => setRent(e.target.value)} />
             </div>
-            {rentVal > 0 && (
-              <div className="hint">
-                Eu devo a ela: <strong>R$ {fmt(rentVal / 2)}</strong>
-              </div>
-            )}
+            {rentVal > 0 && <div className="hint">Eu devo a ela: <strong>R$ {fmt(rentVal / 2)}</strong></div>}
           </div>
 
           {/* Cartão */}
           <div className="card">
             <div className="card-title">Cartão de Crédito</div>
-            <label>
-              Valor da fatura
-              <span className="badge badge-red">eu pago</span>
-            </label>
+            <label>Valor da fatura <span className="badge badge-red">eu pago</span></label>
             <div className="input-wrap">
               <span className="input-prefix">R$</span>
-              <input
-                className="money-input"
-                type="text"
-                inputMode="decimal"
-                placeholder="0,00"
-                value={card}
-                onChange={e => setCard(e.target.value)}
-              />
+              <input className="money-input" type="text" inputMode="decimal" placeholder="0,00"
+                value={card} onChange={e => setCard(e.target.value)} />
             </div>
-            {cardVal > 0 && (
-              <div className="hint">
-                Ela me deve: <strong>R$ {fmt(cardVal / 2)}</strong>
-              </div>
-            )}
+            {cardVal > 0 && <div className="hint">Ela me deve: <strong>R$ {fmt(cardVal / 2)}</strong></div>}
           </div>
 
           {/* Despesas extras */}
           <div className="card">
             <div className="card-title">Despesas Extras</div>
-
             {expenses.map(e => (
               <div key={e.id} className="expense-item">
                 <div className="expense-top">
-                  <input
-                    className="desc-input"
-                    type="text"
-                    placeholder="Descrição (ex: Adestramento)"
-                    value={e.description}
-                    onChange={ev => updateExp(e.id, 'description', ev.target.value)}
-                  />
+                  <input className="desc-input" type="text" placeholder="Descrição (ex: Adestramento)"
+                    value={e.description} onChange={ev => updateExp(e.id, 'description', ev.target.value)} />
                   <div className="amount-wrap">
                     <span className="amount-prefix">R$</span>
-                    <input
-                      className="amount-input"
-                      type="text"
-                      inputMode="decimal"
-                      placeholder="0,00"
-                      value={e.amount}
-                      onChange={ev => updateExp(e.id, 'amount', ev.target.value)}
-                    />
+                    <input className="amount-input" type="text" inputMode="decimal" placeholder="0,00"
+                      value={e.amount} onChange={ev => updateExp(e.id, 'amount', ev.target.value)} />
                   </div>
-                  <button className="btn-remove" onClick={() => setExpenses(prev => prev.filter(x => x.id !== e.id))}>
-                    ✕
-                  </button>
+                  <button className="btn-remove" onClick={() => setExpenses(prev => prev.filter(x => x.id !== e.id))}>✕</button>
                 </div>
                 <div className="expense-bottom">
                   <div className="toggle-group">
-                    <button
-                      className={`toggle-btn ${e.paidBy === 'eu' ? 'active-eu' : ''}`}
-                      onClick={() => updateExp(e.id, 'paidBy', 'eu')}
-                    >
-                      Eu paguei
-                    </button>
-                    <button
-                      className={`toggle-btn ${e.paidBy === 'ela' ? 'active-ela' : ''}`}
-                      onClick={() => updateExp(e.id, 'paidBy', 'ela')}
-                    >
-                      Ela pagou
-                    </button>
+                    <button className={`toggle-btn ${e.paidBy === 'eu'  ? 'active-eu'  : ''}`} onClick={() => updateExp(e.id, 'paidBy', 'eu')}>Eu paguei</button>
+                    <button className={`toggle-btn ${e.paidBy === 'ela' ? 'active-ela' : ''}`} onClick={() => updateExp(e.id, 'paidBy', 'ela')}>Ela pagou</button>
                   </div>
                   <div className="toggle-group">
-                    <button
-                      className={`toggle-btn ${e.split ? 'active-split' : ''}`}
-                      onClick={() => updateExp(e.id, 'split', true)}
-                    >
-                      ÷ 2
-                    </button>
-                    <button
-                      className={`toggle-btn ${!e.split ? 'active-full' : ''}`}
-                      onClick={() => updateExp(e.id, 'split', false)}
-                    >
-                      Valor inteiro
-                    </button>
+                    <button className={`toggle-btn ${e.split  ? 'active-split' : ''}`} onClick={() => updateExp(e.id, 'split', true)}>÷ 2</button>
+                    <button className={`toggle-btn ${!e.split ? 'active-full'  : ''}`} onClick={() => updateExp(e.id, 'split', false)}>Valor inteiro</button>
                   </div>
                 </div>
               </div>
             ))}
-
-            <button className="btn-add" onClick={() => setExpenses(prev => [...prev, newExp()])}>
-              + Adicionar despesa
-            </button>
+            <button className="btn-add" onClick={() => setExpenses(prev => [...prev, newExp()])}>+ Adicionar despesa</button>
           </div>
 
           {/* Resultado */}
           <div className="card">
             <div className="card-title">Resumo</div>
-
             {rentVal > 0 && (
               <div className="summary-line">
                 <span className="summary-label">Aluguel ÷ 2 (eu devo)</span>
@@ -659,23 +758,21 @@
               const v = parseBRL(e.amount);
               if (!v) return null;
               const eff = e.split ? v / 2 : v;
-              const addsToMyTransfer = e.paidBy === 'ela';
+              const addsToBalance = e.paidBy === 'ela';
               return (
                 <div key={e.id} className="summary-line">
                   <span className="summary-label">
-                    {e.description || 'Sem descrição'}
-                    {e.split ? ' ÷ 2' : ''}
+                    {e.description || 'Sem descrição'}{e.split ? ' ÷ 2' : ''}
                     <span style={{ fontSize: 11, marginLeft: 5, color: '#9ca3af' }}>
                       ({e.paidBy === 'eu' ? 'eu paguei' : 'ela pagou'})
                     </span>
                   </span>
-                  <span className={`summary-value ${addsToMyTransfer ? 'red' : 'green'}`}>
-                    {addsToMyTransfer ? '+' : '−'} R$ {fmt(eff)}
+                  <span className={`summary-value ${addsToBalance ? 'red' : 'green'}`}>
+                    {addsToBalance ? '+' : '−'} R$ {fmt(eff)}
                   </span>
                 </div>
               );
             })}
-
             <div className="summary-line divider" style={{ marginBottom: 14 }}>
               <span className="summary-label" style={{ fontWeight: 700 }}>Total</span>
               <span className="summary-value" style={{ fontWeight: 700, fontSize: 15 }}>
@@ -683,28 +780,13 @@
               </span>
             </div>
 
-            <div className={`transfer-box ${transferDirection === 'ela' ? 'reverse' : ''} ${transferDirection === 'zero' ? 'zero' : ''}`}>
-              {transferDirection === 'eu' && (
-                <>
-                  <div className="transfer-label">Eu transfiro para ela</div>
-                  <div className="transfer-amount">R$ {fmt(balance)}</div>
-                  <div className="transfer-who">Pix para ela</div>
-                </>
-              )}
-              {transferDirection === 'ela' && (
-                <>
-                  <div className="transfer-label">Ela transfere para mim</div>
-                  <div className="transfer-amount">R$ {fmt(Math.abs(balance))}</div>
-                  <div className="transfer-who">Ela me faz um Pix</div>
-                </>
-              )}
-              {transferDirection === 'zero' && (
-                <>
-                  <div className="transfer-label">Resultado</div>
-                  <div className="transfer-amount">Estamos quites!</div>
-                </>
-              )}
-            </div>
+            {(isPositive || isNegative) && (
+              <div className={`transfer-box ${isNegative ? 'reverse' : ''}`}>
+                <div className="transfer-label">{isPositive ? 'Eu transfiro para ela' : 'Ela transfere para mim'}</div>
+                <div className="transfer-amount">R$ {fmt(Math.abs(balance))}</div>
+                <div className="transfer-who">{isPositive ? 'Pix para ela' : 'Ela me faz um Pix'}</div>
+              </div>
+            )}
           </div>
 
           {/* Mensagem */}
@@ -715,6 +797,146 @@
               {copied ? '✓  Copiado!' : '📋  Copiar mensagem'}
             </button>
           </div>
+        </>
+      );
+    }
+
+    // ── History Tab ───────────────────────────────────────────────────────────
+    function HistoryTab() {
+      const [history, setHistory]   = useState(loadHistory);
+      const [importText, setImport] = useState('');
+      const [error, setError]       = useState('');
+
+      const persistAndSet = (items) => {
+        const sorted = [...items].sort((a, b) =>
+          b.year !== a.year ? b.year - a.year : b.month - a.month
+        );
+        setHistory(sorted);
+        saveHistory(sorted);
+      };
+
+      const doImport = () => {
+        setError('');
+        const parsed = parseHistoryMessage(importText);
+        if (!parsed) {
+          setError('Não consegui reconhecer o formato. Cole a mensagem completa com o cabeçalho *[ MÊS/ANO - Acerto de contas ]* e o valor final.');
+          return;
+        }
+        const alreadyExists = history.some(h => h.month === parsed.month && h.year === parsed.year);
+        if (alreadyExists) {
+          setError(`${MONTHS[parsed.month]}/${parsed.year} já foi importado. Remova o existente primeiro.`);
+          return;
+        }
+        persistAndSet([...history, parsed]);
+        setImport('');
+      };
+
+      const doDelete = (id) => persistAndSet(history.filter(h => h.id !== id));
+
+      const totalOut = history.filter(h => h.direction === 'eu').reduce((s, h) => s + h.amount, 0);
+      const totalIn  = history.filter(h => h.direction === 'ela').reduce((s, h) => s + h.amount, 0);
+      const net      = totalOut - totalIn;
+
+      return (
+        <>
+          {/* Import */}
+          <div className="card">
+            <div className="card-title">Importar Mês</div>
+            <label>Cole a mensagem gerada pela calculadora</label>
+            <textarea
+              className="import-textarea"
+              placeholder={`*[ MARÇO/2026 - Acerto de contas ]*\n\nAluguel: R$ 8.093,50 / 2 = R$ 4.046,75\nCartão: R$ 1.883,80 / 2 = R$ 941,90\n+ Adestramento: R$ 345,00\n\nTe transfiro R$ 3.689,85`}
+              value={importText}
+              onChange={e => { setImport(e.target.value); setError(''); }}
+            />
+            {error && <div className="import-error">{error}</div>}
+            <button className="btn-import" onClick={doImport} disabled={!importText.trim()}>
+              Importar mês
+            </button>
+          </div>
+
+          {/* Consolidated */}
+          {history.length > 0 && (
+            <div className="card">
+              <div className="card-title">Consolidado — {history.length} {history.length === 1 ? 'mês' : 'meses'}</div>
+
+              <div className="stat-grid">
+                <div className="stat-box purple">
+                  <div className="stat-label">Eu transferi</div>
+                  <div className="stat-value purple">R$ {fmt(totalOut)}</div>
+                  <div className="stat-count">{history.filter(h => h.direction === 'eu').length} meses</div>
+                </div>
+                <div className="stat-box blue">
+                  <div className="stat-label">Ela transferiu</div>
+                  <div className="stat-value blue">R$ {fmt(totalIn)}</div>
+                  <div className="stat-count">{history.filter(h => h.direction === 'ela').length} meses</div>
+                </div>
+              </div>
+
+              <div className={`net-box ${net >= 0 ? 'eu' : 'ela'}`}>
+                <div className="net-label">Saldo líquido</div>
+                <div className={`net-value ${net >= 0 ? 'eu' : 'ela'}`}>
+                  R$ {fmt(Math.abs(net))}
+                </div>
+                <div className="net-sub">
+                  {net >= 0
+                    ? 'No total, eu transferi mais para ela'
+                    : 'No total, ela transferiu mais para mim'}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* History list */}
+          <div className="card">
+            <div className="card-title">Histórico por mês</div>
+            {history.length === 0 ? (
+              <div className="empty-state">
+                <div className="empty-state-icon">📂</div>
+                Nenhum mês importado ainda.<br/>Cole as mensagens antigas acima.
+              </div>
+            ) : (
+              history.map(h => (
+                <div key={h.id} className="history-item">
+                  <div style={{ flex: 1 }}>
+                    <div className="history-month">
+                      {MONTHS[h.month]} <span className="history-year">{h.year}</span>
+                    </div>
+                    <div className={`history-dir ${h.direction}`}>
+                      {h.direction === 'eu' ? '↑ Eu transferi' : '↓ Ela transferiu'}
+                    </div>
+                  </div>
+                  <div className={`history-amount ${h.direction}`}>R$ {fmt(h.amount)}</div>
+                  <button className="btn-del" onClick={() => doDelete(h.id)}>✕</button>
+                </div>
+              ))
+            )}
+          </div>
+        </>
+      );
+    }
+
+    // ── App root ──────────────────────────────────────────────────────────────
+    function App() {
+      const [tab, setTab] = useState('calc');
+      return (
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: 4 }}>
+            <h1>Acerto de Contas</h1>
+            <p className="subtitle">Calculadora mensal</p>
+          </div>
+
+          <div className="tabs">
+            <button className={`tab-btn ${tab === 'calc' ? 'active' : ''}`} onClick={() => setTab('calc')}>
+              Novo mês
+            </button>
+            <button className={`tab-btn ${tab === 'history' ? 'active' : ''}`} onClick={() => setTab('history')}>
+              Histórico
+            </button>
+          </div>
+
+          {tab === 'calc'    && <CalculatorTab />}
+          {tab === 'history' && <HistoryTab />}
         </div>
       );
     }
